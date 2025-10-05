@@ -81,8 +81,6 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-
-
 // run the game
 function playGame() {
     console.log("Welcome to Rock-Paper-Scissors");

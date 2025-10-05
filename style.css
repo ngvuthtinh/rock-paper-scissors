@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(180deg, #222222, #3b3b3b 80%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    flex: 1 1 auto;
+}
+
+
+h1 {
+    text-align: center;
+    color: aliceblue;
+}
+
+
+.container {
+    width: 600px;
+    height: 720px;
+    align-items: center;
+    justify-content: center;
+    background: whitesmoke;
+    box-shadow: 15px 15px 15px #0c0c0c;
+    border-radius: 2.5em;
+}
+
+img {
+    width: 200px;
+    height: auto;
+    mix-blend-mode: multiply;
+}
+
+#scissors {
+    width: 150px;
+}
+
+#gh-logo {
+    width: 50px;
+    mix-blend-mode: multiply;
+}
+
+footer, a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}

@@ -1,7 +1,7 @@
-
 let humanScore = 0;
 let computerScore = 0;
 let gameOver = false;
+
 // Computer choice
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
@@ -10,42 +10,18 @@ function getComputerChoice() {
     else { return "scissors"; }
 }
 
-// Human choice
-function getHumanChoice() {
-    let btn = document.querySelectorAll("#rock, #paper, #scissors");
-    btn.forEach(button => {
-        button.addEventListener('click', (event) => { 
-            if (gameOver) return;
+// 
+function handleChoice(humanChoice) {
+    if (gameOver) return;
 
-            let humanChoice;
-            console.log("human chose: " + event.target.id);
+    const computerChoice = getComputerChoice();
+    console.log(`You chose: ${humanChoice}, Computer chose: ${computerChoice}`);
 
-            if (event.target.id === "rock") { humanChoice = "rock"; }
-            else if (event.target.id === "paper") { humanChoice = "paper"; }
-            else if (event.target.id === "scissors") { humanChoice = "scissors"; }
-            else { return; }
+    const result = playRound(humanChoice, computerChoice);
+    console.log(result);
+    console.log(`Score → You: ${humanScore} | Computer: ${computerScore}`);
 
-            const computerSelection = getComputerChoice();
-
-            console.log("computer chose: " + computerSelection);
-            const result = playRound(humanChoice, computerSelection);
-            console.log(result);
-            console.log(`Score => You: ${humanScore} | Computer: ${computerScore}`);
-
-            // Condition to win
-            if (humanScore === 5 || computerScore === 5) {
-                gameOver = true;
-                const winner = document.createElement("div");
-                const container = document.querySelector(".container")
-                if (humanScore === 5) {
-                    winner.textContent = (`Finally: Human win!!!!!`);
-                    container.appendChild(winner);
-                } else {
-                    winner.textContent = (`Finally: Computer win!!!!!`)
-                    container.appendChild(winner);
-                }
-            }});
-    });
+    if (humanScore >= 5 || computerScore >= 5) endGame();
 }
 
 // Define who win the round
@@ -80,11 +56,19 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+// condition to stop the game
+function endGame() {
+    gameOver = true;
+    if (humanScore >= 5) console.log(`🏆 You win the game with ${humanScore} points!`);
+    else console.log(`💀 Computer wins with ${computerScore} points!`);
+}
 
 // run the game
 function playGame() {
-    console.log("Welcome to Rock-Paper-Scissors");
-    getHumanChoice();
+    btn = document.querySelectorAll("#rock, #paper, #scissors");
+    btn.forEach(btn => {
+        btn.addEventListener("click", () => handleChoice(btn.id));
+    });
 }
 
 playGame();

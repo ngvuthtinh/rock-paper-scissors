@@ -149,7 +149,7 @@ button{
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 2.5em;
+    border-radius: 1em;
 }
 
 #retry-btn:hover{

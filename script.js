@@ -101,8 +101,8 @@ function resetGame(){
     gameOver = false;
     document.querySelector('.player-score').textContent = 0;
     document.querySelector('.computer-score').textContent = 0;
-    document.querySelector(".place-holder-player img").src = '/pictures/rock.jpg';
-    document.querySelector(".place-holder-computer img").src = '/pictures/rock.jpg';
+    document.querySelector(".place-holder-player img").src = 'pictures/rock.jpg';
+    document.querySelector(".place-holder-computer img").src = 'pictures/rock.jpg';
 }
 
 // run the game

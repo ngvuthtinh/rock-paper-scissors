@@ -10,21 +10,47 @@
 </head>
 
 <body>
-    <h1>ROCK PAPER SCISSORS</h1>
+    <h1 class="header">ROCK PAPER SCISSORS</h1>
     <main>
         <div class="container">
-            <div class="container">
-                <img src="/pictures/paper.jpg" alt="paper" id="paper">
-                <img src="/pictures/rock.jpg" alt="rock" id="rock">
-                <img src="/pictures/scissors.jpg" alt="scissors" id="scissors">
+            <h1 class="score-header">Score</h1>
+
+            <!--Display -->
+            <div class="score">
+                <div class="player">
+                    <p>Player:</p>
+                    <p class="player-score">0</p>
+                </div>
+                <div class="computer">
+                    <p>Computer: </p>
+                    <p class="computer-score">0</p>
+                </div>
+            </div>
+            <!-- Display selection -->
+            <div class="display">
+                <div class="place-holder-player">
+                    <img src="/pictures/rock.jpg" alt="rock">
+                </div>
+                <p id="vs">VS</p>
+                <div class="place-holder-computer">
+                    <img src="/pictures/rock.jpg" alt="rock">
+                </div>
+            </div>
+            <!--Player Selection -->
+            <div class="player-selection">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
             </div>
         </div>
     </main>
+
+    <!--Footer -->
     <footer>
-        Made by
         <img id="gh-logo" src="/pictures/github.png" alt="github logo">
         <a href="https://github.com/ngvuthtinh" target="_blank">Ng Vu Thanh Tinh</a>
     </footer>
+
 </body>
 
 </html>

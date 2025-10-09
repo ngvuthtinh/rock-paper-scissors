@@ -13,11 +13,23 @@ function getComputerChoice() {
 // 
 function handleChoice(humanChoice) {
     if (gameOver) return;
+    
+    let playerImg = document.querySelector(".place-holder-player img");
+    playerImg.src = `/pictures/${humanChoice}.jpg`;
 
+    let computerImg = document.querySelector(".place-holder-computer img");
     const computerChoice = getComputerChoice();
+    computerImg.src = `/pictures/${computerChoice}.jpg`;
+
     console.log(`You chose: ${humanChoice}, Computer chose: ${computerChoice}`);
 
     const result = playRound(humanChoice, computerChoice);
+    const playerScoreDisplay = document.querySelector('.player-score');
+    const computerScoreDisplay = document.querySelector('.computer-score');
+
+    playerScoreDisplay.textContent = humanScore;
+    computerScoreDisplay.textContent = computerScore;
+
     console.log(result);
     console.log(`Score → You: ${humanScore} | Computer: ${computerScore}`);
 
@@ -61,6 +73,29 @@ function endGame() {
     gameOver = true;
     if (humanScore >= 5) console.log(`🏆 You win the game with ${humanScore} points!`);
     else console.log(`💀 Computer wins with ${computerScore} points!`);
+
+    const container = document.querySelector('.container');
+    const retrybtn  = document.createElement('button');
+    
+    retrybtn.textContent = 'Retry';
+    retrybtn.id = 'retry-btn';      
+
+    retrybtn.addEventListener('click', () => {
+        resetGame();
+        container.removeChild(retrybtn);
+    })
+
+    container.appendChild(retrybtn);
+}
+
+function resetGame(){
+    humanScore = 0;
+    computerScore = 0;
+    gameOver = false;
+    document.querySelector('.player-score').textContent = 0;
+    document.querySelector('.computer-score').textContent = 0;
+    document.querySelector(".place-holder-player img").src = '/pictures/rock.jpg';
+    document.querySelector(".place-holder-computer img").src = '/pictures/rock.jpg';
 }
 
 // run the game

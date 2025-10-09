@@ -71,8 +71,13 @@ function playRound(humanChoice, computerChoice) {
 // condition to stop the game
 function endGame() {
     gameOver = true;
-    if (humanScore >= 5) console.log(`🏆 You win the game with ${humanScore} points!`);
-    else console.log(`💀 Computer wins with ${computerScore} points!`);
+    const display_container = document.querySelector('.container')
+    const display = document.querySelector('.display')
+    const congratulation = document.createElement('p')
+    congratulation.id = 'congratulation'
+
+    if (humanScore >= 5) congratulation.textContent = `🏆 You win the game with ${humanScore} points!`;
+    else congratulation.textContent = `💀 Computer wins with ${computerScore} points!`;
 
     const container = document.querySelector('.container');
     const retrybtn  = document.createElement('button');
@@ -83,9 +88,11 @@ function endGame() {
     retrybtn.addEventListener('click', () => {
         resetGame();
         container.removeChild(retrybtn);
-    })
+        display_container.removeChild(congratulation)
+    });
 
     container.appendChild(retrybtn);
+    display_container.insertBefore(congratulation, display);
 }
 
 function resetGame(){

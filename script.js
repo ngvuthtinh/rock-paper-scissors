@@ -15,11 +15,11 @@ function handleChoice(humanChoice) {
     if (gameOver) return;
     
     let playerImg = document.querySelector(".place-holder-player img");
-    playerImg.src = `/pictures/${humanChoice}.jpg`;
+    playerImg.src = `pictures/${humanChoice}.jpg`;
 
     let computerImg = document.querySelector(".place-holder-computer img");
     const computerChoice = getComputerChoice();
-    computerImg.src = `/pictures/${computerChoice}.jpg`;
+    computerImg.src = `pictures/${computerChoice}.jpg`;
 
     console.log(`You chose: ${humanChoice}, Computer chose: ${computerChoice}`);
 
